@@ -19,13 +19,36 @@ let usuario= {
 	mail:'anxo@mail.com'
 };
 
+
+let compra=[{
+	producto:'camisa',
+	precio:'15'
+},
+{
+	producto:'pantalon',
+	precio:'20'
+}];
+
 // console.log(usuario);
-localStorage.setItem("usuario",JSON.stringify(usuario));
+localStorage.setItem("compra",JSON.stringify(compra));
 
 //recuperar objeto JSon.stringify.
 
 let userJs=JSON.parse(localStorage.getItem('usuario'));
+let comprados=JSON.parse(localStorage.getItem('compra'))
+//console.log((comprados[0]));
 
-console.log(userJs);
+let total=0;
+comprados.forEach(function(item){
+	let numero=parseInt(item.precio);
+	total=total+numero;
+	// console.log(typeof(numero));
+	
+});
 
-document.querySelector('#peliculas').append(userJs.mail);
+
+
+console.log(`La suma total es ${total}`);
+
+
+
